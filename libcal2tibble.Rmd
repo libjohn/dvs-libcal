@@ -18,46 +18,32 @@ library(rvest)
 libcal <- read_html("https://api3.libcal.com/api_events.php?iid=971&m=upc&cid=3819&c=&d=25858&l=50&target=_blank")
 ```
 
-## Exlpore
+### Build a Tibble
 
 ```{r}
-libcal
+libcal %>% 
+  html_nodes("table") %>% 
+  .[[1]] %>% 
+  html_table() %>% 
+  spread(X1, X2) -> big_df
 
-str(libcal)
 
-class(libcal)
+for (i in 2:length(libcal %>% html_nodes("table"))) {
+  libcal %>% 
+    html_nodes("table") %>% 
+    .[[i]] %>% 
+    html_table() %>% 
+    spread(X1, X2) -> temp_df2
+  
+  big_df <- bind_rows(big_df, temp_df2)
+  
+  
+}
 
-libcal
+big_df
+
+
 ```
 
 
-### Example of a table
-```{r}
-libcal %>% 
-  html_nodes("table") %>% 
-  .[[3]] %>% # the 3rd table in the feed
-  html_table() %>% 
-  select(X2) # select the 2nd variable
-
-libcal %>% 
-  html_nodes("table") %>% 
-  .[[3]] %>% # the 3rd table in the feed
-  html_table() %>% 
-  select(X1)
-
-
-libcal %>% 
-  html_nodes("table") %>% 
-  .[[3]] %>% # the 3rd table in the feed
-  html_table() %>% 
-  filter(X1 == "Title:") %>% 
-  select(X2)
-
-libcal %>% 
-  html_nodes("table") %>% 
-  .[[3]] %>% # the 3rd table in the feed
-  html_table() %>% 
-  gather(X2)
-
-```
 
