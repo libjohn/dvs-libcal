@@ -180,32 +180,11 @@ $(document).ready(function () {
 <h2>Libraries</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KHJ2ZXN0KVxubGlicmFyeShEVClcbmBgYCJ9 -->
+<pre class="r"><code>library(tidyverse)
+library(rvest)
+library(DT)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSCRdGlkeXZlcnNlkiB3YXMgYnVpbHQgdW5kZXIgUiB2ZXJzaW9uIDMuMy4zTG9hZGluZyB0aWR5dmVyc2U6IGdncGxvdDJcbkxvYWRpbmcgdGlkeXZlcnNlOiB0aWJibGVcbkxvYWRpbmcgdGlkeXZlcnNlOiB0aWR5clxuTG9hZGluZyB0aWR5dmVyc2U6IHJlYWRyXG5Mb2FkaW5nIHRpZHl2ZXJzZTogcHVycnJcbkxvYWRpbmcgdGlkeXZlcnNlOiBkcGx5clxucGFja2FnZSCRdGliYmxlkiB3YXMgYnVpbHQgdW5kZXIgUiB2ZXJzaW9uIDMuMy4zcGFja2FnZSCRdGlkeXKSIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gMy4zLjNwYWNrYWdlIJFyZWFkcpIgd2FzIGJ1aWx0IHVuZGVyIFIgdmVyc2lvbiAzLjMuM3BhY2thZ2UgkXB1cnJykiB3YXMgYnVpbHQgdW5kZXIgUiB2ZXJzaW9uIDMuMy4zQ29uZmxpY3RzIHdpdGggdGlkeSBwYWNrYWdlcyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuZmlsdGVyKCk6IGRwbHlyLCBzdGF0c1xubGFnKCk6ICAgIGRwbHlyLCBzdGF0c1xuIn0= -->
-<pre><code>package 㤼㸱tidyverse㤼㸲 was built under R version 3.3.3Loading tidyverse: ggplot2
-Loading tidyverse: tibble
-Loading tidyverse: tidyr
-Loading tidyverse: readr
-Loading tidyverse: purrr
-Loading tidyverse: dplyr
-package 㤼㸱tibble㤼㸲 was built under R version 3.3.3package 㤼㸱tidyr㤼㸲 was built under R version 3.3.3package 㤼㸱readr㤼㸲 was built under R version 3.3.3package 㤼㸱purrr㤼㸲 was built under R version 3.3.3Conflicts with tidy packages -----------------------
-filter(): dplyr, stats
-lag():    dplyr, stats</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShydmVzdClcbmBgYCJ9 -->
-<pre class="r"><code>library(rvest)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiB4bWwyXG5cbkF0dGFjaGluZyBwYWNrYWdlOiDjpLzjuLFydmVzdOOkvOO4slxuXG5UaGUgZm9sbG93aW5nIG9iamVjdCBpcyBtYXNrZWQgZnJvbSDjpLzjuLFwYWNrYWdlOnJlYWRy46S847iyOlxuXG4gICAgZ3Vlc3NfZW5jb2RpbmdcbiJ9 -->
-<pre><code>Loading required package: xml2
-
-Attaching package: 㤼㸱rvest㤼㸲
-
-The following object is masked from 㤼㸱package:readr㤼㸲:
-
-    guess_encoding</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -218,26 +197,24 @@ The following object is masked from 㤼㸱package:readr㤼㸲:
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<div id="build-a-tibble" class="section level3">
-<h3>Build a Tibble</h3>
+<div id="build-a-data-frame" class="section level3">
+<h3>Build a Data Frame</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGliY2FsICU+JSBcbiAgaHRtbF9ub2RlcyhcInRhYmxlXCIpICU+JSBcbiAgLltbMV1dICU+JSBcbiAgaHRtbF90YWJsZSgpICU+JSBcbiAgc3ByZWFkKFgxLCBYMikgLT4gYmlnX2RmXG5mb3IgKGkgaW4gMjpsZW5ndGgobGliY2FsICU+JSBodG1sX25vZGVzKFwidGFibGVcIikpKSB7XG4gIGxpYmNhbCAlPiUgXG4gICAgaHRtbF9ub2RlcyhcInRhYmxlXCIpICU+JSBcbiAgICAuW1tpXV0gJT4lIFxuICAgIGh0bWxfdGFibGUoKSAlPiUgXG4gICAgc3ByZWFkKFgxLCBYMikgLT4gdGVtcF9kZjJcbiAgXG4gIGJpZ19kZiA8LSBiaW5kX3Jvd3MoYmlnX2RmLCB0ZW1wX2RmMilcbiAgXG4gIFxufVxuYmlnX2RmXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGliY2FsICU+JSBcbiAgaHRtbF9ub2RlcyhcInRhYmxlXCIpICU+JSBcbiAgLltbMV1dICU+JSBcbiAgaHRtbF90YWJsZSgpICU+JSBcbiAgc3ByZWFkKFgxLCBYMikgLT4gYmlnX2RmICBcbmZvciAoaSBpbiAyOmxlbmd0aChsaWJjYWwgJT4lIGh0bWxfbm9kZXMoXCJ0YWJsZVwiKSkpIHtcbiAgbGliY2FsICU+JSBcbiAgICBodG1sX25vZGVzKFwidGFibGVcIikgJT4lIFxuICAgIC5bW2ldXSAlPiUgXG4gICAgaHRtbF90YWJsZSgpICU+JSBcbiAgICBzcHJlYWQoWDEsIFgyKSAtPiB0ZW1wX2RmMiAgXG4gIFxuICBiaWdfZGYgPC0gYmluZF9yb3dzKGJpZ19kZiwgdGVtcF9kZjIpXG59XG5iaWdfZGZcbmBgYCJ9 -->
 <pre class="r"><code>libcal %&gt;% 
   html_nodes(&quot;table&quot;) %&gt;% 
   .[[1]] %&gt;% 
   html_table() %&gt;% 
-  spread(X1, X2) -&gt; big_df
+  spread(X1, X2) -&gt; big_df  
 for (i in 2:length(libcal %&gt;% html_nodes(&quot;table&quot;))) {
   libcal %&gt;% 
     html_nodes(&quot;table&quot;) %&gt;% 
     .[[i]] %&gt;% 
     html_table() %&gt;% 
-    spread(X1, X2) -&gt; temp_df2
+    spread(X1, X2) -&gt; temp_df2  
   
   big_df &lt;- bind_rows(big_df, temp_df2)
-  
-  
 }
 big_df</code></pre>
 <!-- rnb-source-end -->
@@ -254,7 +231,7 @@ big_df</code></pre>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlJ2ZXN0OiBjb252ZXJ0IExpYkNhbCBmZWVkIHRvIERhdGFGcmFtZSINCmF1dGhvcjogIkpvaG4gTGl0dGxlIg0KZGF0ZTogImByIFN5cy5EYXRlKClgIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KIyMgTGlicmFyaWVzDQogDQpgYGB7ciBsb2FkIGxpYnJhcmllc30NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShydmVzdCkNCmxpYnJhcnkoRFQpDQpgYGANCiAgDQojIyBMb2FkIERhdGEgDQoNCmBgYHtyfQ0KbGliY2FsIDwtIHJlYWRfaHRtbCgiaHR0cHM6Ly9hcGkzLmxpYmNhbC5jb20vYXBpX2V2ZW50cy5waHA/aWlkPTk3MSZtPXVwYyZjaWQ9MzgxOSZjPSZkPTI1ODU4Jmw9NTAmdGFyZ2V0PV9ibGFuayIpDQpgYGANCg0KIyMjIEJ1aWxkIGEgVGliYmxlDQoNCmBgYHtyfQ0KbGliY2FsICU+JSANCiAgaHRtbF9ub2RlcygidGFibGUiKSAlPiUgDQogIC5bWzFdXSAlPiUgDQogIGh0bWxfdGFibGUoKSAlPiUgDQogIHNwcmVhZChYMSwgWDIpIC0+IGJpZ19kZg0KDQoNCmZvciAoaSBpbiAyOmxlbmd0aChsaWJjYWwgJT4lIGh0bWxfbm9kZXMoInRhYmxlIikpKSB7DQogIGxpYmNhbCAlPiUgDQogICAgaHRtbF9ub2RlcygidGFibGUiKSAlPiUgDQogICAgLltbaV1dICU+JSANCiAgICBodG1sX3RhYmxlKCkgJT4lIA0KICAgIHNwcmVhZChYMSwgWDIpIC0+IHRlbXBfZGYyDQogIA0KICBiaWdfZGYgPC0gYmluZF9yb3dzKGJpZ19kZiwgdGVtcF9kZjIpDQogIA0KICANCn0NCg0KYmlnX2RmDQoNCg0KYGBgDQoNCg0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlJ2ZXN0OiBjb252ZXJ0IExpYkNhbCBmZWVkIHRvIERhdGFGcmFtZSINCmF1dGhvcjogIkpvaG4gTGl0dGxlIg0KZGF0ZTogImByIFN5cy5EYXRlKClgIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KIyMgTGlicmFyaWVzDQogDQpgYGB7ciBsb2FkIGxpYnJhcmllc30NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShydmVzdCkNCmxpYnJhcnkoRFQpDQpgYGANCiAgDQojIyBMb2FkIERhdGEgDQoNCmBgYHtyfQ0KbGliY2FsIDwtIHJlYWRfaHRtbCgiaHR0cHM6Ly9hcGkzLmxpYmNhbC5jb20vYXBpX2V2ZW50cy5waHA/aWlkPTk3MSZtPXVwYyZjaWQ9MzgxOSZjPSZkPTI1ODU4Jmw9NTAmdGFyZ2V0PV9ibGFuayIpDQpgYGANCg0KIyMjIEJ1aWxkIGEgRGF0YSBGcmFtZQ0KDQpgYGB7cn0NCmxpYmNhbCAlPiUgDQogIGh0bWxfbm9kZXMoInRhYmxlIikgJT4lIA0KICAuW1sxXV0gJT4lIA0KICBodG1sX3RhYmxlKCkgJT4lIA0KICBzcHJlYWQoWDEsIFgyKSAtPiBiaWdfZGYgIA0KDQoNCmZvciAoaSBpbiAyOmxlbmd0aChsaWJjYWwgJT4lIGh0bWxfbm9kZXMoInRhYmxlIikpKSB7DQogIGxpYmNhbCAlPiUgDQogICAgaHRtbF9ub2RlcygidGFibGUiKSAlPiUgDQogICAgLltbaV1dICU+JSANCiAgICBodG1sX3RhYmxlKCkgJT4lIA0KICAgIHNwcmVhZChYMSwgWDIpIC0+IHRlbXBfZGYyICANCiAgDQogIGJpZ19kZiA8LSBiaW5kX3Jvd3MoYmlnX2RmLCB0ZW1wX2RmMikNCn0NCg0KYmlnX2RmDQoNCg0KYGBgDQoNCg0KDQo=</div>
 
 
 
