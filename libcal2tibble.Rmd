@@ -10,7 +10,6 @@ output: html_notebook
 ```{r load libraries}
 library(tidyverse)
 library(rvest)
-library(DT)
 ```
   
 ## Load Data 
