@@ -1,5 +1,5 @@
 ---
-title: "Rvest: convert LibCal feed to Tibble"
+title: "Rvest: convert LibCal feed to DataFrame"
 author: "John Little"
 date: "`r Sys.Date()`"
 output: html_notebook
@@ -10,6 +10,7 @@ output: html_notebook
 ```{r load libraries}
 library(tidyverse)
 library(rvest)
+library(DT)
 ```
   
 ## Load Data 
