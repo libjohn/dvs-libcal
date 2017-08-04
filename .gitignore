@@ -16,6 +16,16 @@
 
 # RStudio files
 .Rproj.user/
+*.Rproj
+
+# Website output
+public
+## static/*  ## Initially this must be added and committed at the CLI shell
+## themes/*  ## Initially this must be added and committed at the CLI shell
+
+# Xaringan Slides
+# *libs/
+# *.html
 
 # produced vignettes
 vignettes/*.html
@@ -31,3 +41,4 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
+.Rproj.user
