@@ -1,0 +1,63 @@
+---
+title: "Rvest: convert LibCal feed to Tibble"
+author: "John Little"
+date: "`r Sys.Date()`"
+output: html_notebook
+---
+
+## Libraries
+ 
+```{r load libraries}
+library(tidyverse)
+library(rvest)
+```
+  
+## Load Data 
+
+```{r}
+libcal <- read_html("https://api3.libcal.com/api_events.php?iid=971&m=upc&cid=3819&c=&d=25858&l=50&target=_blank")
+```
+
+## Exlpore
+
+```{r}
+libcal
+
+str(libcal)
+
+class(libcal)
+
+libcal
+```
+
+
+### Example of a table
+```{r}
+libcal %>% 
+  html_nodes("table") %>% 
+  .[[3]] %>% # the 3rd table in the feed
+  html_table() %>% 
+  select(X2) # select the 2nd variable
+
+libcal %>% 
+  html_nodes("table") %>% 
+  .[[3]] %>% # the 3rd table in the feed
+  html_table() %>% 
+  select(X1)
+
+
+libcal %>% 
+  html_nodes("table") %>% 
+  .[[3]] %>% # the 3rd table in the feed
+  html_table() %>% 
+  filter(X1 == "Title:") %>% 
+  select(X2)
+
+libcal %>% 
+  html_nodes("table") %>% 
+  .[[3]] %>% # the 3rd table in the feed
+  html_table() %>% 
+  gather(X2)
+
+```
+
