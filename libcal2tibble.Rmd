@@ -35,7 +35,7 @@ for (i in 2:length(libcal %>% html_nodes("table"))) {
     html_table() %>% 
     spread(X1, X2) -> temp_df2  
   
-  big_df <- bind_rows(big_df, temp_df2)
+big_df <- bind_rows(big_df, temp_df2)
 }
 
 reg_url <- libcal %>% 
