@@ -21,11 +21,11 @@ libcal <- read_html("https://api3.libcal.com/api_events.php?iid=971&m=upc&cid=38
 ### Build a Data Frame
 
 ```{r}
-libcal %>% 
+big_df <- libcal %>% 
   html_nodes("table") %>% 
   .[[1]] %>% 
   html_table() %>% 
-  spread(X1, X2) -> big_df  
+  spread(X1, X2) 
 
 
 for (i in 2:length(libcal %>% html_nodes("table"))) {
@@ -38,10 +38,41 @@ for (i in 2:length(libcal %>% html_nodes("table"))) {
   big_df <- bind_rows(big_df, temp_df2)
 }
 
+reg_url <- libcal %>% 
+  html_nodes("tr.s-lc-ea-treg td a") %>% 
+  html_attr("href", default = NA_character_)
+
+big_df <- bind_cols(big_df, Reg_URL = reg_url)
+
 big_df
 
 
 ```
 
+## Variations and Scratch
+
+Don't Look here.  There B Dragoooons.
+```{}
+workshops <- libcal %>% 
+  html_nodes("table")
+
+html_table(workshops)[1] %>% 
+  html_name(a)
+
+html_attrs(workshops, "s-lc-ea-ttit") 
+html_attr(workshops, "s-lc-ea-ttit")
+
+str(workshops)
+
+libcal %>% 
+  html_nodes("tr td a")
+
+
+libcal %>% 
+  html_nodes("tr.s-lc-ea-treg td a") %>% 
+  .[[1]] %>% 
+  html_attr("href", default = NA_character_)
+
+```
 
 
